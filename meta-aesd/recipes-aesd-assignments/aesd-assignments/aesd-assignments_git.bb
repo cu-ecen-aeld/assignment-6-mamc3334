@@ -20,7 +20,7 @@ S = "${WORKDIR}/git/server"
 # See https://git.yoctoproject.org/poky/plain/meta/conf/bitbake.conf?h=kirkstone
 # ${bindir} = /usr/bin/ - matches aesdsocket-start-stop.sh
 FILES:${PN} += "${bindir}/aesdsocket \
-				${sysconfdir}/init.d/S99aesdsocket "
+				${sysconfdir}/rc5.d/S99aesdsocket "
 
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
@@ -46,6 +46,6 @@ do_install () {
 	install -d ${D}${bindir}
 	install -m 0755 ${S}/aesdsocket ${D}${bindir}
 
-	install -m 0755 -d ${D}${sysconfdir}/init.d
-	install -m 0755 ${S}/aesdsocket-start-stop.sh ${D}${sysconfdir}/init.d/S99aesdsocket
+	install -m 0755 -d ${D}${sysconfdir}/rc5.d
+	install -m 0755 ${S}/aesdsocket-start-stop.sh ${D}${sysconfdir}/rc5.d/S99aesdsocket
 }
